@@ -49,7 +49,6 @@ current = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68524, 0 )
-visible = false
 centered = false
 frames = SubResource( 2 )
 animation = "idle"
