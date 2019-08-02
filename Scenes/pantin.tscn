@@ -1,10 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/pantin.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://pantin_idle_145_192_250ms.png" type="Texture" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.506982, 1, 0.422975 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
 
 [node name="pantin" type="KinematicBody"]
 collision_layer = 3
@@ -32,3 +46,10 @@ transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0, 3.
 [node name="Camera" type="Camera" parent="head"]
 transform = Transform( 1, -4.44952e-008, -1.21704e-008, 4.44952e-008, 0.860787, 0.508965, -1.21704e-008, -0.508965, 0.860787, 0, 0, 0 )
 current = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68524, 0 )
+visible = false
+centered = false
+frames = SubResource( 2 )
+animation = "idle"
