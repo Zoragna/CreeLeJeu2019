@@ -3,10 +3,6 @@ extends KinematicBody
 var mouse_sensitivity = 0.3
 var head_angle_y = 0
 
-onready var head = get_node("head")
-onready var fly_camera = head.get_node("Camera")
-
-onready var debug_label = get_node("Control/Label")
 onready var animator = get_node("AnimationPlayer")
 
 signal launching_game
@@ -27,12 +23,15 @@ var paused = false
 var velocity = Vector3()
 
 var mass = 50
-var g = -9.81
+var g = 0
 var weight = g*mass
 
+var fly_camera = null
+var head = null
 
 func _ready():
-	camera = fly_camera
+	paused = true
+	animator.play("idle")
 
 func set_camera(value):
 	camera.current = false
@@ -44,11 +43,9 @@ func _process(delta):
 
 func pause():
 	paused = true
-	animator.stop()
 
 func resume():
 	paused = false
-	animator.play("same_as_before")
 
 func _physics_process(delta):
 	if !paused :
@@ -108,7 +105,7 @@ func key(event):
 				emit_signal("abandonning_game")
 				STATE = "RUN"
 
-func _input(event):
+func _inactive_input(event):
 	if !paused :
 		if event is InputEventMouseMotion:
 			mouse(event)
