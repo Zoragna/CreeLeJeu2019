@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/credits.gd" type="Script" id=1]
+[ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://button.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 138, 48 )
+
+[node name="credits" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+margin_left = 162.45
+margin_top = 130.15
+margin_right = 410.45
+margin_bottom = 275.15
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Jeu créé par
+
+Archae,
+Blast,
+Rouli,
+Zoragna"
+text = "Jeu créé par
+
+Archae,
+Blast,
+Rouli,
+Zoragna"
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 223.25
+margin_top = 294.5
+margin_right = 317.25
+margin_bottom = 314.5
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Retour Menu"
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
