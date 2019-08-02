@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/town.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/pantin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/beacon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/lego game.tscn" type="PackedScene" id=5]
+
+[node name="main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="town" parent="." instance=ExtResource( 2 )]
+
+[node name="pantin" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156962, 0 )
+
+[node name="beacon" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86404, 4.59806 )
+
+[node name="lego game" parent="beacon" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.86404, 3.21047 )
+
+[node name="beacon2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.646, 0.86404, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.348294, 0.4903, -0.798935, 0.195936, 0.871554, 0.449447, 0.916679, -1.62539e-008, -0.399625, -12.0641, 6.43621, -13.0522 )
