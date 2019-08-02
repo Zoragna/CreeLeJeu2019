@@ -7,6 +7,7 @@ onready var head = get_node("head")
 onready var fly_camera = head.get_node("Camera")
 
 onready var debug_label = get_node("Control/Label")
+onready var animator = get_node("AnimationPlayer")
 
 signal launching_game
 signal abandonning_game
@@ -26,7 +27,7 @@ var paused = false
 var velocity = Vector3()
 
 var mass = 50
-var g = 0
+var g = -9.81
 var weight = g*mass
 
 
@@ -43,9 +44,11 @@ func _process(delta):
 
 func pause():
 	paused = true
+	animator.stop()
 
 func resume():
 	paused = false
+	animator.play("same_as_before")
 
 func _physics_process(delta):
 	if !paused :
@@ -56,10 +59,19 @@ func run(delta):
 	direction = Vector3()
 	var target = Vector3()
 	var velxy = Vector2(velocity.x, velocity.z)
+	if velxy.length() < 1:
+		animator.play("idle")
+	else :
+		animator.play("walk")
+	
 	aim = fly_camera.get_global_transform().basis
 	if Input.is_action_pressed("ui_left") :
 		direction -= aim.x
+		get_node("idle").flip_h = false
+		get_node("run").flip_h = false
 	if Input.is_action_pressed("ui_right") :
+		get_node("idle").flip_h = true
+		get_node("run").flip_h = true
 		direction += aim.x
 	if Input.is_action_pressed("ui_up") :
 		direction -= aim.z
