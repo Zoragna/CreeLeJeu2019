@@ -7,7 +7,6 @@ onready var head = get_node("head")
 onready var fly_camera = head.get_node("Camera")
 
 onready var debug_label = get_node("Control/Label")
-
 onready var animator = get_node("AnimationPlayer")
 
 signal launching_game
@@ -27,8 +26,8 @@ var aim
 var paused = false
 var velocity = Vector3()
 
-var mass = 50
-var g = 0
+var mass = 5
+var g = -9.81
 var weight = g*mass
 
 
@@ -82,7 +81,7 @@ func run(delta):
 	direction = direction.normalized()
 	target.x = direction.x*speed
 	target.z = direction.z*speed
-	target.y += velocity.y
+	#target.y += velocity.y
 	target += weight*Vector3(0,1,0)
 
 	velocity = velocity.linear_interpolate(target, acceleration*delta)

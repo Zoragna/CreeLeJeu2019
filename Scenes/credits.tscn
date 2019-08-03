@@ -40,10 +40,5 @@ Archae,
 Blast,
 Rouli,
 Zoragna"
-text = "Jeu créé par
 
-Archae,
-Blast,
-Rouli,
-Zoragna"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
