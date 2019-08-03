@@ -10,8 +10,7 @@ onready var pantin = get_node("pantin")
 onready var beacon = get_node("beacon")
 onready var lego_game = beacon.get_node("lego game")
 onready var beacon2 = get_node("beacon2")
-onready var beacon3 = get_node("beacon3")
-onready var car_game = beacon3.get_node("car game")
+onready var car_game = beacon2.get_node("car game")
 
 var current_camera
 var current_mission
@@ -29,17 +28,15 @@ func _ready():
 	beacon.connect("game_launched",lego_game,"start")
 	beacon.connect("game_abandonned",lego_game,"abandon")
 
-	beacon3.set_game(car_game)
-	beacon3.connect("game_launched",car_game,"start")
-	beacon3.connect("game_abandonned",car_game,"abandon")
+	beacon2.set_game(car_game)
+	beacon2.connect("game_launched",car_game,"start")
+	beacon2.connect("game_abandonned",car_game,"abandon")
 	
 func _on_player_interact():
 	if pantin in beacon.close_bodies :
 		launch_beacon(beacon)
 	elif pantin in beacon2.close_bodies :
-		print("beacon2")
-	elif pantin in beacon3.close_bodies :
-		launch_beacon(beacon3)
+		launch_beacon(beacon2)
 
 func launch_beacon(beacon):
 	print("beacon")
@@ -51,9 +48,7 @@ func _on_player_deinteract():
 	if pantin in beacon.close_bodies :
 		abandon_game(beacon)
 	elif pantin in beacon2.close_bodies :
-		print("debeacon2")
-	elif pantin in beacon3.close_bodies :
-		abandon_game(beacon3)
+		abandon_game(beacon2)
 
 func abandon_game(beacon):
 	print("debeacon")
