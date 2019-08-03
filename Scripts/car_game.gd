@@ -18,6 +18,7 @@ var paused
 var player_car
 var cars = []
 var camera
+var on_mission = false
 
 var STATE = 3
 
@@ -53,6 +54,7 @@ func start():
 	car_UI.show()
 	STATE = 3
 	colorRect.color = Color.black
+	on_mission = true
 	
 	randomize()
 	player_car = spawn_car(generator.interpolate(0,randf())+Vector3(0,10,0))
@@ -61,7 +63,7 @@ func start():
 	cars.append(player_car)
 
 func _physics_process(delta):
-	if STATE <= 0:
+	if STATE <= 0 && on_mission :
 		var engine_force = 0
 		var brake = 0
 		var steering = 0
@@ -84,6 +86,7 @@ func _physics_process(delta):
 func abandon():
 	timer.stop()
 	car_UI.hide()
+	on_mission = false
 
 func spawn_car(position):
 	print("spawn block !")
