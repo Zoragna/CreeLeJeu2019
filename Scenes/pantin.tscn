@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/pantin.gd" type="Script" id=1]
 [ext_resource path="res://pantin_idle_145_192_250ms.png" type="Texture" id=2]
 [ext_resource path="res://pantin_run_145_192_100ms.png" type="Texture" id=3]
 [ext_resource path="res://pantin_using_145_192_120ms.png" type="Texture" id=4]
+[ext_resource path="res://ridingtrex_200_232_150ms.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 0.537839
-height = 0.6996
+height = 0.363274
+
+[sub_resource type="RayShape" id=6]
+length = 0.190519
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -73,6 +77,84 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("riding:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "riding"
+length = 0.6
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("run:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("idle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("using:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("riding:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("riding:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "using"
@@ -126,6 +208,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("riding:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -192,6 +286,39 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("riding:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.0222222, 0.985185, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.914063, 0.692521, 0.167816, 1, 0, 1, 0.0862745, 0.517647, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+trail_color_modifier = SubResource( 9 )
+emission_shape = 1
+emission_sphere_radius = 0.41
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+linear_accel = -4.0
+radial_accel = 4.69
+color = Color( 0.6, 0.682353, 0, 1 )
+
+[sub_resource type="SphereMesh" id=11]
+radius = 0.1
+height = 0.1
 
 [node name="pantin" type="KinematicBody"]
 collision_layer = 3
@@ -201,6 +328,10 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 2.08966, 0 )
 shape = SubResource( 5 )
 
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1.34617, 0 )
+shape = SubResource( 6 )
+
 [node name="idle" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14918, 0 )
 visible = false
@@ -209,15 +340,22 @@ hframes = 4
 frame = 3
 
 [node name="run" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10436, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.149, 0 )
 visible = false
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 4
 
 [node name="using" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.104, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.149, 0 )
+visible = false
 texture = ExtResource( 4 )
+hframes = 4
+frame = 3
+
+[node name="riding" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.149, 0 )
+texture = ExtResource( 5 )
 hframes = 4
 frame = 2
 
@@ -240,5 +378,14 @@ current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
+anims/riding = SubResource( 7 )
 anims/using = SubResource( 4 )
 anims/walk = SubResource( 3 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42698, 0 )
+visibility_aabb = AABB( -1.0075, -1.19136, -1.54361, 2.01499, 2.38273, 3.08722 )
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 11 )
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

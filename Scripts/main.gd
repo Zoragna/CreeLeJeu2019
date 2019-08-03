@@ -15,9 +15,12 @@ onready var lego_game = beacon.get_node("lego game")
 onready var beacon2 = get_node("beacon2")
 onready var car_game = beacon2.get_node("car game")
 
+onready var trex = get_node("trex")
 onready var town = get_node("town")
 
-var paused = true
+var Trex = preload("res://Scenes/trex.tscn")
+
+var paused = false
 
 var current_camera
 var current_mission
@@ -25,14 +28,12 @@ var close_beacon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	town.pause()
-	
 	mission_indicator.hide()
+	pause_gui.hide()
 	
-	current_camera = pause_camera
+	current_camera = travelling_camera
 	current_camera.current = true
-	
-	pantin.pause()
+
 	pantin.connect("launching_game",self,"_on_player_interact")
 	pantin.connect("abandonning_game",self,"_on_player_deinteract")
 	
@@ -49,10 +50,15 @@ func _ready():
 	beacon2.connect("player_exited",self,"player_exited", [beacon2])
 	
 func _on_player_interact():
-	if pantin in beacon.close_bodies :
-		launch_beacon(beacon)
-	elif pantin in beacon2.close_bodies :
-		launch_beacon(beacon2)
+	if pantin.STATE != "RIDING" :
+		if pantin in beacon.close_bodies :
+			launch_beacon(beacon)
+		elif pantin in beacon2.close_bodies :
+			launch_beacon(beacon2)
+		elif pantin in trex.close_bodies :
+			print("pantin wants to ride trex")
+			remove_child(trex)
+			pantin.ride()
 
 func player_entered(beacon):
 	close_beacon = beacon
@@ -69,10 +75,18 @@ func launch_beacon(beacon):
 	mission_indicator.hide()
 
 func _on_player_deinteract():
-	if pantin in beacon.close_bodies :
-		abandon_game(beacon)
-	elif pantin in beacon2.close_bodies :
-		abandon_game(beacon2)
+	if pantin.STATE == "RIDING" :
+		print("pantin wants to leave trex")
+		pantin.unride()
+		trex = Trex.instance()
+		#trex.transform.origin = pantin.transform.origin - pantin.velocity.normalized()*5
+		trex.transform.origin = pantin.transform.origin + Vector3(1,2,1)
+		add_child(trex)
+	else :
+		if pantin in beacon.close_bodies :
+			abandon_game(beacon)
+		elif pantin in beacon2.close_bodies :
+			abandon_game(beacon2)
 
 func abandon_game(beacon):
 	print("debeacon")
@@ -103,6 +117,7 @@ func change_camera(value):
 
 func pause():
 	paused = true
+	trex.pause()
 	pantin.pause()
 	town.pause()
 	if current_mission != null :
@@ -113,6 +128,7 @@ func pause():
 
 func resume():
 	paused = false
+	trex.resume()
 	pantin.resume()
 	town.resume()
 	if current_mission != null :
