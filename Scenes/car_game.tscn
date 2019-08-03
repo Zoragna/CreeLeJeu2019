@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/car_game.gd" type="Script" id=1]
 [ext_resource path="res://space.png" type="Texture" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://down.png" type="Texture" id=5]
 [ext_resource path="res://right.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/R.tscn" type="PackedScene" id=7]
-
-[sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="Curve3D" id=2]
 _data = {
@@ -26,6 +24,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.933947, 0.357412, 0, -0.357412, 0.933947, 0, 2.60338, 1.12198 )
 
 [node name="Control" type="Control" parent="."]
+editor/display_folded = true
 margin_left = 12.5771
 margin_top = 122.813
 margin_right = 52.5771
@@ -112,10 +111,8 @@ margin_top = 373.0
 margin_right = 448.0
 margin_bottom = 373.0
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance" type="Spatial" parent="."]
 transform = Transform( -4.1579, 0, -0.015676, 0, 0.206304, 0, 0.0651872, 0, -0.999877, 0, 0, -2.84071 )
-mesh = SubResource( 1 )
-material/0 = null
 
 [node name="Path" type="Path" parent="MeshInstance"]
 transform = Transform( 0.950182, 0, 0, 0, 0.950182, 0, 0, 0, 0.950181, 0.0490803, 5.10411, 0.421605 )
