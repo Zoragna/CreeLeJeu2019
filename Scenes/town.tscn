@@ -18,9 +18,18 @@ transform = Transform( 1, 0, 0, 0, 0.10769, 0, 0, 0, 1, 0, -0.0975785, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00640135, 0.00317378, 0.00125952 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.784797 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.660371, 0.0260224, -0.671425 )
+
+[node name="Spatial3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.542246, 0.0260224, -0.183567 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.669396, 0.0260224, -0.671425 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.532252, 0.0260224, 0.0524228 )
