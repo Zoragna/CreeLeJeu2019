@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/town.tscn" type="PackedScene" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://Scenes/lego game.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/car_game.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/trex.tscn" type="PackedScene" id=7]
+[ext_resource path="res://r.png" type="Texture" id=8]
+[ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 3
+outline_color = Color( 0.701961, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [node name="main" type="Spatial"]
 script = ExtResource( 1 )
@@ -37,3 +45,59 @@ far = 140.8
 
 [node name="trex" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17298, 0.957803, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 5.16943
+margin_top = 7.75409
+margin_right = 45.1694
+margin_bottom = 47.7541
+
+[node name="mission_indicator" type="VBoxContainer" parent="Control"]
+margin_left = 737.935
+margin_top = 363.152
+margin_right = 817.935
+margin_bottom = 442.152
+
+[node name="TextureRect" type="TextureRect" parent="Control/mission_indicator"]
+margin_right = 80.0
+margin_bottom = 35.0
+texture = ExtResource( 8 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/mission_indicator"]
+margin_top = 39.0
+margin_right = 80.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 80, 40 )
+text = "Lancer la mission"
+
+[node name="pause" type="Control" parent="Control"]
+margin_left = 371.129
+margin_top = 156.134
+margin_right = 411.129
+margin_bottom = 196.134
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/pause"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/pause/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 300, 90 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "PAUSE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/pause/VBoxContainer"]
+margin_top = 94.0
+margin_right = 300.0
+margin_bottom = 144.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/pause/VBoxContainer/HBoxContainer"]
+margin_bottom = 50.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/pause/VBoxContainer/HBoxContainer"]
+margin_left = 4.0
+margin_right = 144.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 140, 50 )
+text = "Appuyez sur Echap pour reprendre"

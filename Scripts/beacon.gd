@@ -6,6 +6,8 @@ extends Spatial
 
 signal game_launched
 signal game_abandonned
+signal player_entered
+signal player_exited
 
 var game
 var close_bodies = []
@@ -28,9 +30,9 @@ func abandon_game():
 
 func _on_Area_body_entered(body):
 	close_bodies.append(body)
-	print("entered")
+	emit_signal("player_entered")
 
 
 func _on_Area_body_exited(body):
 	close_bodies.erase(body)
-	print("exited")
+	emit_signal("player_exited")
