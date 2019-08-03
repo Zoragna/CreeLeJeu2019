@@ -40,8 +40,9 @@ transform = Transform( -0.348294, 0.4903, -0.798935, 0.195936, 0.871554, 0.44944
 
 [node name="travelling_camera" type="Camera" parent="."]
 transform = Transform( -1, 4.61853e-014, -8.74228e-008, -3.88239e-008, 0.89598, 0.444094, 7.83291e-008, 0.444094, -0.89598, 0, 6.17337, -7.50004 )
-fov = 42.3
-far = 140.8
+fov = 31.9
+near = 0.11
+far = 303.8
 
 [node name="trex" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17298, 0.957803, 0 )

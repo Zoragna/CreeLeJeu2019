@@ -24,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="cat" type="Spatial"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.973416, 0 )
 script = ExtResource( 1 )
 
@@ -35,6 +36,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+flip_h = true
 texture = ExtResource( 2 )
 hframes = 8
 frame = 3
