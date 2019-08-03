@@ -1,30 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/town.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/palm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Libraries/grounds.meshlib" type="MeshLibrary" id=4]
 
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="PlaneMesh" id=2]
-
 [node name="town" type="Spatial"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 script = ExtResource( 1 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
-collision_layer = 5
-collision_mask = 5
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 0.10769, 0, 0, 0, 1, 0, -0.0975785, 0 )
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00640135, 0.00317378, 0.00125952 )
-mesh = SubResource( 2 )
-material/0 = null
 
 [node name="Spatial" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.660371, 0.0260224, -0.671425 )
@@ -42,11 +25,10 @@ transform = Transform( -0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.532252, 0.0260224, 0
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.562522, 0.122696, 0.473432 )
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform( -1, 8.74228e-008, 3.82137e-015, 0, -4.37114e-008, 1, 8.74228e-008, 1, 4.37114e-008, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh_library = ExtResource( 4 )
-cell_size = Vector3( 1, 1, 1 )
 data = {
-"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 536870912, 65534, 0, 0, 2, 1, 536870912, 2, 2, 0, 2, 3, 0, 2, 4, 0, 589829, 65528, 0, 1, 65529, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 65535, 65534, 0, 0, 65535, 1610612736, 1, 65535, 0, 2, 65535, 0, 65534, 65535, 2, 65535, 65535, 0 )
+"cells": PoolIntArray( 0, 0, 1610612736, 65534, 0, 1, 65535, 0, 0, 65534, 1, 1, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 0, 65535, 0, 65534, 65535, 1, 65535, 65535, 1610612736 )
 }
 __meta__ = {
 "_editor_clip_": 0,

@@ -1,8 +1,5 @@
 extends KinematicBody
 
-var mouse_sensitivity = 0.3
-var head_angle_y = 0
-
 onready var head = get_node("head")
 onready var fly_camera = head.get_node("Camera")
 
