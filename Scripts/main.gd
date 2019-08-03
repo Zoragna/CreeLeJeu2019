@@ -66,6 +66,7 @@ func launch_beacon(beacon):
 	beacon.launch_game()
 	change_camera(beacon.get_game().camera)
 	current_mission = beacon.get_game()
+	mission_indicator.hide()
 
 func _on_player_deinteract():
 	if pantin in beacon.close_bodies :
@@ -78,6 +79,7 @@ func abandon_game(beacon):
 	beacon.abandon_game()
 	change_camera(travelling_camera)
 	current_mission = null
+	mission_indicator.show()
 
 func _input(event):
 	if event is InputEventKey :
@@ -105,6 +107,8 @@ func pause():
 	town.pause()
 	if current_mission != null :
 		current_mission.pause()
+	elif close_beacon != null :
+		mission_indicator.hide()
 	pause_gui.show()
 
 func resume():
@@ -113,12 +117,14 @@ func resume():
 	town.resume()
 	if current_mission != null :
 		current_mission.resume()
+	elif close_beacon != null :
+		mission_indicator.show()
 	pause_gui.hide()
 
 func _physics_process(delta):
 	travelling_camera.transform.origin = pantin.transform.origin + Vector3(0,8,-11)
 	if pantin.transform.origin.y < - 50 :
 		pantin.transform.origin.y = 10
-	if close_beacon != null && !paused :
+	if close_beacon != null && !paused && current_mission == null :
 		mission_indicator.rect_global_position = travelling_camera.unproject_position(close_beacon.transform.origin)+Vector2(0,-50)
 		mission_indicator.show()
