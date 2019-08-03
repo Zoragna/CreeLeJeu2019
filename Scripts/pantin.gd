@@ -45,9 +45,11 @@ func _process(delta):
 
 func pause():
 	paused = true
+	animator.stop()
 
 func resume():
 	paused = false
+	animator.play()
 
 func _physics_process(delta):
 	if !paused :
@@ -101,6 +103,7 @@ func key(event):
 				print("MISSION")
 				emit_signal("launching_game")
 				STATE = "MISSION"
+				animator.play("idle")
 			elif STATE == "MISSION" :
 				print("DEMISSION")
 				emit_signal("abandonning_game")
