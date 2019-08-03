@@ -28,6 +28,7 @@ func _ready():
 	positions = range(0,length,length/5)
 	change_selection(idx_selection)
 	move_selection()
+	gui.hide()
 
 func move_selection():
 	var t = positions[idx_positions]/length

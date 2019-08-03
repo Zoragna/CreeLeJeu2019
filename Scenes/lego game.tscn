@@ -142,4 +142,5 @@ margin_left = 428.973
 margin_top = 479.958
 margin_right = 428.973
 margin_bottom = 479.958
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
