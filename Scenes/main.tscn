@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/town.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/pantin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/beacon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/lego game.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/trex.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/car_game.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/trex.tscn" type="PackedScene" id=7]
 
 [node name="main" type="Spatial"]
 script = ExtResource( 1 )
@@ -22,10 +23,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86404, 4.59806 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.86404, 3.21047 )
 
 [node name="beacon2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.646, 0.86404, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.646, 0.86404, -5.49976 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="car game" parent="beacon2" instance=ExtResource( 6 )]
+
+[node name="pause_camera" type="Camera" parent="."]
 transform = Transform( -0.348294, 0.4903, -0.798935, 0.195936, 0.871554, 0.449447, 0.916679, -1.62539e-008, -0.399625, -12.0641, 6.43621, -13.0522 )
 
-[node name="trex" parent="." instance=ExtResource( 6 )]
+[node name="travelling_camera" type="Camera" parent="."]
+transform = Transform( -1, 0, -8.74228e-008, -3.88239e-008, 0.89598, 0.444094, 7.83291e-008, 0.444094, -0.89598, 0, 8.0274, -11.2902 )
+
+[node name="trex" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17298, 0.957803, 0 )

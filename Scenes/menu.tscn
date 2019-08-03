@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/menu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://button.png" type="Texture" id=2]
 [ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=3]
 

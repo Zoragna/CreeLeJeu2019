@@ -48,7 +48,7 @@ func pause():
 
 func resume():
 	paused = false
-	animator.play("same_as_before")
+	animator.play()
 
 func _physics_process(delta):
 	if !paused :
@@ -59,24 +59,22 @@ func run(delta):
 	direction = Vector3()
 	var target = Vector3()
 	var velxy = Vector2(velocity.x, velocity.z)
-	if velxy.length() < 1:
+	if velxy.length() < 1 :
 		animator.play("idle")
 	else :
 		animator.play("walk")
-	
-	aim = fly_camera.get_global_transform().basis
 	if Input.is_action_pressed("ui_left") :
-		direction -= aim.x
+		direction += Vector3(1,0,0)
 		get_node("idle").flip_h = false
 		get_node("run").flip_h = false
 	if Input.is_action_pressed("ui_right") :
+		direction -= Vector3(1,0,0)
 		get_node("idle").flip_h = true
 		get_node("run").flip_h = true
-		direction += aim.x
 	if Input.is_action_pressed("ui_up") :
-		direction -= aim.z
+		direction += Vector3(0,0,1)
 	if Input.is_action_pressed("ui_down") :
-		direction += aim.z
+		direction -= Vector3(0,0,1)
 	if is_on_floor() :
 		if Input.is_action_pressed("jump") :
 			target += jump_speed*Vector3(0,1,0)
@@ -91,10 +89,11 @@ func run(delta):
 	velocity = move_and_slide(velocity,Vector3(0,1,0))
 
 func mouse(event):
-	var bas = transform.basis
-	if  STATE == "RUN" :
-		bas = bas.rotated(bas.y, event.relative.x/ -200)
-	transform.basis = bas.orthonormalized()
+	#var bas = transform.basis
+	#if  STATE == "RUN" :
+	#		bas = bas.rotated(bas.y, event.relative.x/ -200)
+	#transform.basis = bas.orthonormalized()
+	pass
 
 func key(event):
 	if event.pressed : 
@@ -103,6 +102,7 @@ func key(event):
 				print("MISSION")
 				emit_signal("launching_game")
 				STATE = "MISSION"
+				animator.play("idle")
 			elif STATE == "MISSION" :
 				print("DEMISSION")
 				emit_signal("abandonning_game")
