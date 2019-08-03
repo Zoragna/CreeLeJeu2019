@@ -92,4 +92,4 @@ func spawn_block(position, selected = false):
 		block.set_random_block()
 
 func _on_Timer_timeout():
-	gui.hide()
+	pass#gui.hide()

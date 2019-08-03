@@ -226,8 +226,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 173.0
+margin_top = 277.0
+margin_right = 213.0
+margin_bottom = 291.0
 
 [node name="head" type="Spatial" parent="."]
 transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0, 3.17901, -2.13444 )

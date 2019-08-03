@@ -430,7 +430,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("cube:collision_mask")
@@ -454,7 +454,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("bar:collision_mask")
@@ -734,10 +734,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("L/L:modulate")
+tracks/9/path = NodePath("cube:collision_mask")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -745,11 +745,11 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("cube:collision_mask")
+tracks/10/path = NodePath("L:collision_mask")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -761,7 +761,7 @@ tracks/10/keys = {
 "values": [ 0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("L:collision_mask")
+tracks/11/path = NodePath("bar:collision_mask")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -770,10 +770,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("bar:collision_mask")
+tracks/12/path = NodePath("S:sleeping")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -782,10 +782,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("S:sleeping")
+tracks/13/path = NodePath("S:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -794,10 +794,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("S:visible")
+tracks/14/path = NodePath("S:collision_layer")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -806,10 +806,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("S:collision_layer")
+tracks/15/path = NodePath("S:collision_mask")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -821,7 +821,7 @@ tracks/15/keys = {
 "values": [ 0 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("S:collision_mask")
+tracks/16/path = NodePath("circle:sleeping")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -830,10 +830,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("circle:sleeping")
+tracks/17/path = NodePath("circle:collision_layer")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -842,10 +842,10 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("circle:collision_layer")
+tracks/18/path = NodePath("circle:collision_mask")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -857,7 +857,7 @@ tracks/18/keys = {
 "values": [ 0 ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("circle:collision_mask")
+tracks/19/path = NodePath("circle:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -866,10 +866,10 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("circle:visible")
+tracks/20/path = NodePath("T:sleeping")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -881,7 +881,7 @@ tracks/20/keys = {
 "values": [ false ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("T:sleeping")
+tracks/21/path = NodePath("T:collision_layer")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -890,10 +890,10 @@ tracks/21/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 1 ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("T:collision_layer")
+tracks/22/path = NodePath("T:collision_mask")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -905,7 +905,7 @@ tracks/22/keys = {
 "values": [ 1 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("T:collision_mask")
+tracks/23/path = NodePath("T:visible")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -914,27 +914,15 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ true ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("T:visible")
+tracks/24/path = NodePath("T/T:modulate")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/25/type = "value"
-tracks/25/path = NodePath("T/T:modulate")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1354,10 +1342,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("L/L:modulate")
+tracks/9/path = NodePath("cube:collision_mask")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1365,11 +1353,11 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("cube:collision_mask")
+tracks/10/path = NodePath("L:collision_mask")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1381,7 +1369,7 @@ tracks/10/keys = {
 "values": [ 0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("L:collision_mask")
+tracks/11/path = NodePath("bar:collision_mask")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1390,10 +1378,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("bar:collision_mask")
+tracks/12/path = NodePath("S:sleeping")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1402,10 +1390,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("S:sleeping")
+tracks/13/path = NodePath("S:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1414,10 +1402,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("S:visible")
+tracks/14/path = NodePath("S:collision_layer")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1426,10 +1414,10 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("S:collision_layer")
+tracks/15/path = NodePath("S:collision_mask")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1441,7 +1429,7 @@ tracks/15/keys = {
 "values": [ 0 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("S:collision_mask")
+tracks/16/path = NodePath("circle:sleeping")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1450,10 +1438,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("circle:sleeping")
+tracks/17/path = NodePath("circle:collision_layer")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1462,10 +1450,10 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 1 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("circle:collision_layer")
+tracks/18/path = NodePath("circle:collision_mask")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1477,7 +1465,7 @@ tracks/18/keys = {
 "values": [ 1 ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("circle:collision_mask")
+tracks/19/path = NodePath("circle:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1486,10 +1474,10 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ true ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("circle:visible")
+tracks/20/path = NodePath("T:sleeping")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -1501,7 +1489,7 @@ tracks/20/keys = {
 "values": [ true ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("T:sleeping")
+tracks/21/path = NodePath("T:collision_layer")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -1510,10 +1498,10 @@ tracks/21/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("T:collision_layer")
+tracks/22/path = NodePath("T:collision_mask")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -1525,7 +1513,7 @@ tracks/22/keys = {
 "values": [ 0 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("T:collision_mask")
+tracks/23/path = NodePath("T:visible")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -1534,27 +1522,15 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("T:visible")
+tracks/24/path = NodePath("circle/circle:modulate")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/25/type = "value"
-tracks/25/path = NodePath("circle/circle:modulate")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -2510,7 +2486,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("cube:visible")
@@ -2585,19 +2561,19 @@ tracks/8/keys = {
 "values": [ 0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("L/L:modulate")
+tracks/9/path = NodePath("bar:collision_mask")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.4, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.215686 ), Color( 1, 1, 1, 0.619608 ), Color( 1, 1, 1, 0.215686 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("bar:collision_mask")
+tracks/10/path = NodePath("L:collision_mask")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -2609,7 +2585,7 @@ tracks/10/keys = {
 "values": [ 0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("L:collision_mask")
+tracks/11/path = NodePath("cube:collision_mask")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -2621,7 +2597,7 @@ tracks/11/keys = {
 "values": [ 0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("cube:collision_mask")
+tracks/12/path = NodePath("S:sleeping")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -2630,10 +2606,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("S:sleeping")
+tracks/13/path = NodePath("S:collision_layer")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -2642,10 +2618,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("S:collision_layer")
+tracks/14/path = NodePath("S:collision_mask")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -2657,7 +2633,7 @@ tracks/14/keys = {
 "values": [ 0 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("S:collision_mask")
+tracks/15/path = NodePath("S:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -2666,10 +2642,10 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("S:visible")
+tracks/16/path = NodePath("circle:sleeping")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -2678,10 +2654,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("circle:sleeping")
+tracks/17/path = NodePath("circle:collision_layer")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -2690,10 +2666,10 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("circle:collision_layer")
+tracks/18/path = NodePath("circle:collision_mask")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -2705,7 +2681,7 @@ tracks/18/keys = {
 "values": [ 0 ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("circle:collision_mask")
+tracks/19/path = NodePath("circle:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -2714,10 +2690,10 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("circle:visible")
+tracks/20/path = NodePath("T:sleeping")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -2726,10 +2702,10 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("T:sleeping")
+tracks/21/path = NodePath("T:collision_layer")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -2738,10 +2714,10 @@ tracks/21/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("T:collision_layer")
+tracks/22/path = NodePath("T:collision_mask")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -2753,7 +2729,7 @@ tracks/22/keys = {
 "values": [ 0 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("T:collision_mask")
+tracks/23/path = NodePath("T:visible")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -2762,27 +2738,15 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("T:visible")
+tracks/24/path = NodePath("T/T:modulate")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/25/type = "value"
-tracks/25/path = NodePath("T/T:modulate")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -3745,7 +3709,6 @@ sleeping = true
 
 [node name="L" type="Sprite3D" parent="L"]
 transform = Transform( -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0, 1, 0, 0, 0 )
-modulate = Color( 1, 1, 1, 0.254554 )
 pixel_size = 0.03
 texture = ExtResource( 3 )
 
@@ -3790,12 +3753,8 @@ anims/selection_cube = SubResource( 10 )
 [node name="S" type="RigidBody" parent="."]
 editor/display_folded = true
 visible = false
-collision_layer = 0
-collision_mask = 0
-sleeping = true
 
 [node name="S" type="Sprite3D" parent="S"]
-modulate = Color( 1, 1, 1, 0.304008 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="S"]
@@ -3816,28 +3775,26 @@ collision_mask = 0
 sleeping = true
 
 [node name="circle" type="Sprite3D" parent="circle"]
-modulate = Color( 1, 1, 1, 0.343049 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="circle"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
+transform = Transform( 3, 0, 0, 0, -1.31134e-007, -3, 0, 3, -1.31134e-007, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="T" type="RigidBody" parent="."]
-editor/display_folded = true
-visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 
 [node name="T" type="Sprite3D" parent="T"]
-modulate = Color( 1, 1, 1, 0.460722 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="T"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499613, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.921013, 0 )
 shape = SubResource( 14 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="T"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522677, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.02358, 0 )
 shape = SubResource( 15 )

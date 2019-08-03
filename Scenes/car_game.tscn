@@ -26,8 +26,10 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.933947, 0.357412, 0, -0.357412, 0.933947, 0, 2.60338, 1.12198 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 12.5771
+margin_top = 122.813
+margin_right = 52.5771
+margin_bottom = 162.813
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 margin_left = 449.0

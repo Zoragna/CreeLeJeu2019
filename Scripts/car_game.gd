@@ -48,11 +48,18 @@ func resume():
 	for car in cars :
 		car.resume()
 
+func abandon():
+	timer.stop()
+	car_UI.hide()
+	on_mission = false
+
 func start():
 	print("started car game !")
 	timer.start()
 	car_UI.show()
 	STATE = 3
+	timer.wait_time = 1
+	colorRect.show()
 	colorRect.color = Color.black
 	on_mission = true
 	
@@ -63,7 +70,7 @@ func start():
 	cars.append(player_car)
 
 func _physics_process(delta):
-	if STATE <= 0 && on_mission :
+	if STATE <= 0 && on_mission && !paused :
 		var engine_force = 0
 		var brake = 0
 		var steering = 0
@@ -83,11 +90,6 @@ func _physics_process(delta):
 		player_car.set_brake(brake)
 		player_car.set_engine_force(engine_force)
 
-func abandon():
-	timer.stop()
-	car_UI.hide()
-	on_mission = false
-
 func spawn_car(position):
 	print("spawn block !")
 	var car = Car.instance()
@@ -104,8 +106,6 @@ func _on_Timer_timeout():
 		colorRect.color = Color.green
 	elif STATE == 0 :
 		colorRect.hide()
-		timer.wait_time = 7
-	elif STATE == -1 :
-		car_UI.hide()
+		timer.stop()
 	STATE -= 1
 	
