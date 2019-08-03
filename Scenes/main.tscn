@@ -17,10 +17,10 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156962, 0 )
 
 [node name="beacon" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86404, 4.59806 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86404, 3.03713 )
 
 [node name="lego game" parent="beacon" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.86404, 3.21047 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.86404, 5.05892 )
 
 [node name="beacon2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.646, 0.86404, -5.49976 )

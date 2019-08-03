@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/lego game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/block.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -35,4 +36,7 @@ shape = SubResource( 3 )
 transform = Transform( 0.999927, 0.0120872, -5.27002e-011, -0.0117306, 0.970427, 0.241109, 0.00291433, -0.241091, 0.970498, 0, 5.06312, 8.53507 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="block" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4.44564, 0 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

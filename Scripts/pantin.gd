@@ -59,7 +59,7 @@ func run(delta):
 	direction = Vector3()
 	var target = Vector3()
 	var velxy = Vector2(velocity.x, velocity.z)
-	if velxy.length() < 1 :
+	if velxy.length() < 3 :
 		animator.play("idle")
 	else :
 		animator.play("walk")

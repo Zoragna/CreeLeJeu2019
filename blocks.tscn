@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 2, 6, 2 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 2, 3 )
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 2.98396, 1 )
+
+[node name="blocks" type="Spatial"]
+
+[node name="cube" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="RigidBody" type="RigidBody" parent="cube"]
+
+[node name="CollisionShape" type="CollisionShape" parent="cube/RigidBody"]
+shape = SubResource( 2 )
+
+[node name="L" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89562, 4.78272 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="L"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.98998, 2.4776 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="RigidBody" type="RigidBody" parent="L/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="L/MeshInstance/RigidBody"]
+shape = SubResource( 5 )
+
+[node name="RigidBody" type="RigidBody" parent="L"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52544, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="L/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51077, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="bar" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89562, -6.35264 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="RigidBody" type="RigidBody" parent="bar"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52544, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="bar/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51077, 0, 0 )
+shape = SubResource( 6 )
