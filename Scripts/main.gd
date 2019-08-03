@@ -12,6 +12,8 @@ onready var lego_game = beacon.get_node("lego game")
 onready var beacon2 = get_node("beacon2")
 onready var car_game = beacon2.get_node("car game")
 
+onready var town = get_node("town")
+
 var current_camera
 var current_mission
 
@@ -78,11 +80,13 @@ func change_camera(value):
 
 func pause():
 	pantin.pause()
+	town.pause()
 	if current_mission != null :
 		current_mission.pause()
 
 func resume():
 	pantin.resume()
+	town.resume()
 	if current_mission != null :
 		current_mission.resume()
 

@@ -1,8 +1,5 @@
 extends KinematicBody
 
-var mouse_sensitivity = 0.3
-var head_angle_y = 0
-
 onready var head = get_node("head")
 onready var fly_camera = head.get_node("Camera")
 
@@ -33,6 +30,7 @@ var weight = g*mass
 
 func _ready():
 	camera = fly_camera
+	animator.play("idle")
 
 func set_camera(value):
 	camera.current = false
@@ -75,9 +73,6 @@ func run(delta):
 		direction += Vector3(0,0,1)
 	if Input.is_action_pressed("ui_down") :
 		direction -= Vector3(0,0,1)
-	if is_on_floor() :
-		if Input.is_action_pressed("jump") :
-			target += jump_speed*Vector3(0,1,0)
 	direction = direction.normalized()
 	target.x = direction.x*speed
 	target.z = direction.z*speed
@@ -102,7 +97,7 @@ func key(event):
 				print("MISSION")
 				emit_signal("launching_game")
 				STATE = "MISSION"
-				animator.play("idle")
+				animator.play("using")
 			elif STATE == "MISSION" :
 				print("DEMISSION")
 				emit_signal("abandonning_game")

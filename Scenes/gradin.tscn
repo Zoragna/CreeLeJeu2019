@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/gradin.gd" type="Script" id=1]
+[ext_resource path="res://cheering928_202_350ms.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.054902, 0.027451, 0.027451, 1 )
+
+[sub_resource type="PrismMesh" id=1]
+material = SubResource( 5 )
+left_to_right = 1.0
+size = Vector3( 2, 2, 4 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.890196, 0.913725, 0.0980392, 1 )
+metallic = 1.0
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 6 )
+size = Vector3( 1, 0.3, 3.8 )
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="Animation" id=4]
+resource_name = "cheering"
+length = 0.7
+loop = true
+step = 0.35
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody/MeshInstance/MeshInstance/Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody/MeshInstance/MeshInstance2/Sprite3D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[node name="gradin" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.242467, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445845, -0.923314, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody/MeshInstance/MeshInstance"]
+transform = Transform( 0.000287012, 0, -1, 0, 1, 0, 1, 0, 0.000287012, -0.300828, 1.16578, 0 )
+texture = ExtResource( 2 )
+hframes = 2
+frame = 1
+
+[node name="MeshInstance2" type="MeshInstance" parent="StaticBody/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270672, -0.0586681, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Sprite3D2" type="Sprite3D" parent="StaticBody/MeshInstance/MeshInstance2"]
+transform = Transform( 0.000287012, 0, -1, 0, 1, 0, 1, 0, 0.000287012, -0.239309, 1.11344, 0 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cheering = SubResource( 4 )
