@@ -17,48 +17,38 @@ var length
 var positions
 
 var idx_positions = 0
-var current_selection = "cube"
+var idx_selection = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	paused = true
 	length = generator.get_baked_length()
 	positions = range(0,length,length/5)
-	change_selection(current_selection)
+	change_selection(idx_selection)
 	move_selection()
 
 func move_selection():
 	var t = positions[idx_positions]/length
 	selection_block.transform.origin = generator.interpolate(0,t) + path.transform.origin
 
-func change_selection(value):
-	current_selection = value
-	selection_block.animator.play("selection_"+current_selection)
+func change_selection(id):
+	var value = selection_block.blocks[id]
+	selection_block.animator.play("selection_"+value)
 
 func _process(delta):
 	if !paused :
 		if Input.is_action_just_pressed("ui_right") :
 			idx_positions += 1 
-			idx_positions %= len(positions)
 		if Input.is_action_just_pressed("ui_left"):
 			idx_positions -= 1 
-			idx_positions %= len(positions)
+		idx_positions %= len(positions)
 		move_selection()
 		if Input.is_action_just_pressed("ui_up"):
-			if current_selection == "cube" :
-				current_selection = "L"
-			elif current_selection == "L":
-				current_selection = "bar"
-			elif current_selection == "bar":
-				current_selection = "cube"
+			idx_selection += 1
 		if Input.is_action_just_pressed("ui_down"):
-			if current_selection == "cube" :
-				current_selection = "bar"
-			elif current_selection == "bar":
-				current_selection = "L"
-			elif current_selection == "L":
-				current_selection = "cube"
-		change_selection(current_selection)
+			idx_selection -= 1
+		idx_selection %= len(selection_block.blocks)
+		change_selection(idx_selection)
 		if Input.is_action_just_pressed("jump"):
 			spawn_block(selection_block.transform.origin - path.transform.origin, true)
 
@@ -89,7 +79,7 @@ func spawn_block(position, selected = false):
 	block.transform.origin = position
 	path.add_child(block)
 	if selected :
-		block.set_block(current_selection)
+		block.set_block(selection_block.blocks[idx_selection])
 	else :
 		block.set_random_block()
 

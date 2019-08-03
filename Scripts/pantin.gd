@@ -75,9 +75,6 @@ func run(delta):
 		direction += Vector3(0,0,1)
 	if Input.is_action_pressed("ui_down") :
 		direction -= Vector3(0,0,1)
-	if is_on_floor() :
-		if Input.is_action_pressed("jump") :
-			target += jump_speed*Vector3(0,1,0)
 	direction = direction.normalized()
 	target.x = direction.x*speed
 	target.z = direction.z*speed
@@ -102,7 +99,7 @@ func key(event):
 				print("MISSION")
 				emit_signal("launching_game")
 				STATE = "MISSION"
-				animator.play("idle")
+				animator.play("using")
 			elif STATE == "MISSION" :
 				print("DEMISSION")
 				emit_signal("abandonning_game")

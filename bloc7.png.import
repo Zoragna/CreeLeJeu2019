@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground.png-19dd19062ae149a099889071e7b87881.stex"
+path="res://.import/bloc7.png-e53dd4bc710295d25afce2f86c1b2e36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ground.png"
-dest_files=[ "res://.import/ground.png-19dd19062ae149a099889071e7b87881.stex" ]
+source_file="res://bloc7.png"
+dest_files=[ "res://.import/bloc7.png-e53dd4bc710295d25afce2f86c1b2e36.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

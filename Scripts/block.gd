@@ -6,7 +6,7 @@ extends Spatial
 
 
 onready var animator = get_node("AnimationPlayer")
-var blocks = ["cube", "L", "bar"]
+var blocks = ["cube", "L", "bar", "S", "T", "circle"]
 
 var paused = false
 
