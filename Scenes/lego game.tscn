@@ -36,7 +36,18 @@ shape = SubResource( 3 )
 transform = Transform( 0.999927, 0.0120872, -5.27002e-011, -0.0117306, 0.970427, 0.241109, 0.00291433, -0.241091, 0.970498, 0, 5.06312, 8.53507 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="block" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4.44564, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 218.0
+margin_top = 265.0
+margin_right = 300.0
+margin_bottom = 305.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
