@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/car_game.gd" type="Script" id=1]
+[ext_resource path="res://space.png" type="Texture" id=2]
+[ext_resource path="res://up.png" type="Texture" id=3]
+[ext_resource path="res://left.png" type="Texture" id=4]
+[ext_resource path="res://down.png" type="Texture" id=5]
+[ext_resource path="res://right.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/R.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -28,6 +34,81 @@ margin_left = 449.0
 margin_top = 244.0
 margin_right = 489.0
 margin_bottom = 284.0
+
+[node name="Control2" type="Control" parent="Control"]
+margin_left = 448.0
+margin_top = 407.0
+margin_right = 488.0
+margin_bottom = 447.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/Control2"]
+margin_left = -326.0
+margin_top = -13.0
+margin_right = -151.0
+margin_bottom = 27.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control2/HBoxContainer"]
+margin_right = 175.0
+margin_bottom = 35.0
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control2/HBoxContainer"]
+margin_top = 39.0
+margin_right = 175.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 150, 40 )
+text = "Pour freiner"
+
+[node name="Control3" type="VBoxContainer" parent="Control"]
+margin_left = 764.163
+margin_top = 366.03
+margin_right = 877.163
+margin_bottom = 444.03
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Control3"]
+margin_right = 113.0
+margin_bottom = 35.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control3/CenterContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 35.0
+texture = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Control3"]
+margin_top = 39.0
+margin_right = 113.0
+margin_bottom = 74.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control3/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 35.0
+texture = ExtResource( 4 )
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Control3/HBoxContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 35.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Control3/HBoxContainer"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 35.0
+texture = ExtResource( 6 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control3"]
+margin_top = 78.0
+margin_right = 113.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 113, 50 )
+text = "Pour se déplacer"
+
+[node name="R" parent="Control" instance=ExtResource( 7 )]
+margin_left = 448.0
+margin_top = 373.0
+margin_right = 448.0
+margin_bottom = 373.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( -4.1579, 0, -0.015676, 0, 0.206304, 0, 0.0651872, 0, -0.999877, 0, 0, -2.84071 )
