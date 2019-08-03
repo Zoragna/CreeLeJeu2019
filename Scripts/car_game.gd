@@ -5,8 +5,8 @@ extends Spatial
 # var b = "text"
 
 onready var timer = get_node("Timer")
-onready var colorRect = get_node("Control/ColorRect")
 onready var car_UI = get_node("Control")
+onready var colorRect = car_UI.get_node("ColorRect")
 onready var flying_camera = get_node("Camera")
 
 onready var start_line = get_node("MeshInstance")
@@ -18,6 +18,7 @@ var paused
 var player_car
 var cars = []
 var camera
+var on_mission = false
 
 var STATE = 3
 
@@ -53,6 +54,7 @@ func start():
 	car_UI.show()
 	STATE = 3
 	colorRect.color = Color.black
+	on_mission = true
 	
 	randomize()
 	player_car = spawn_car(generator.interpolate(0,randf())+Vector3(0,10,0))
@@ -61,7 +63,7 @@ func start():
 	cars.append(player_car)
 
 func _physics_process(delta):
-	if STATE == 0:
+	if STATE <= 0 && on_mission :
 		var engine_force = 0
 		var brake = 0
 		var steering = 0
@@ -84,6 +86,7 @@ func _physics_process(delta):
 func abandon():
 	timer.stop()
 	car_UI.hide()
+	on_mission = false
 
 func spawn_car(position):
 	print("spawn block !")
@@ -95,13 +98,14 @@ func spawn_car(position):
 func _on_Timer_timeout():
 	if STATE == 3: 
 		colorRect.color = Color.red
-		STATE = 2
 	elif STATE == 2 :
 		colorRect.color = Color.orange
-		STATE = 1
 	elif STATE == 1 :
 		colorRect.color = Color.green
-		STATE = 0
 	elif STATE == 0 :
 		colorRect.hide()
+		timer.wait_time = 7
+	elif STATE == -1 :
+		car_UI.hide()
+	STATE -= 1
 	

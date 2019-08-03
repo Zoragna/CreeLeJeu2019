@@ -19,6 +19,8 @@ var current_mission
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	town.pause()
+	
 	current_camera = pause_camera
 	current_camera.current = true
 	

@@ -7,10 +7,10 @@ onready var animator = get_node("AnimationPlayer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animator.play("idle")
+	animator.play("cheering")
 
 func pause():
 	animator.stop()
 
 func resume():
-	animator.play("idle")
+	animator.play("cheering")

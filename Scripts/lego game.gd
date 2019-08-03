@@ -10,6 +10,7 @@ onready var generator = path.curve
 onready var timer = get_node("Timer")
 onready var camera = get_node("Camera")
 onready var selection_block = get_node("block")
+onready var gui = get_node("Control")
 
 var paused
 var blocks
@@ -21,11 +22,13 @@ var idx_selection = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	gui.hide()
 	paused = true
 	length = generator.get_baked_length()
 	positions = range(0,length,length/5)
 	change_selection(idx_selection)
 	move_selection()
+	gui.hide()
 
 func move_selection():
 	var t = positions[idx_positions]/length
@@ -57,21 +60,26 @@ func pause():
 	timer.set_paused(paused)
 	for child in path.get_children():
 		child.pause()
+	gui.hide()
 
 func resume():
 	paused = false
 	timer.set_paused(paused)
 	for child in path.get_children():
 		child.resume()
+	if !timer.is_stopped():
+		gui.show()
 
 func start():
 	print("started lego game !")
 	timer.start()
 	resume()
+	gui.show()
 
 func abandon():
 	timer.stop()
 	paused = true
+	gui.hide()
 
 func spawn_block(position, selected = false):
 	print("spawn block !")
@@ -84,6 +92,4 @@ func spawn_block(position, selected = false):
 		block.set_random_block()
 
 func _on_Timer_timeout():
-	randomize()
-	var t = positions[randi()%len(positions)]/length
-	#spawn_block(generator.interpolate(0,t))
+	gui.hide()
