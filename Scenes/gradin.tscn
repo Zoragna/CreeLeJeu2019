@@ -70,7 +70,6 @@ material/0 = null
 transform = Transform( 0.000287012, 0, -1, 0, 1, 0, 1, 0, 0.000287012, -0.300828, 1.16578, 0 )
 texture = ExtResource( 2 )
 hframes = 2
-frame = 1
 
 [node name="MeshInstance2" type="MeshInstance" parent="StaticBody/MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270672, -0.0586681, 0 )
@@ -81,6 +80,7 @@ material/0 = null
 transform = Transform( 0.000287012, 0, -1, 0, 1, 0, 1, 0, 0.000287012, -0.239309, 1.11344, 0 )
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 2 )

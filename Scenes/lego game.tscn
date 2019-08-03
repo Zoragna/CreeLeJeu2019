@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/lego game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://space.png" type="Texture" id=3]
+[ext_resource path="res://left.png" type="Texture" id=4]
+[ext_resource path="res://right.png" type="Texture" id=5]
+[ext_resource path="res://up.png" type="Texture" id=6]
+[ext_resource path="res://down.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/R.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -36,7 +42,104 @@ shape = SubResource( 3 )
 transform = Transform( 0.999927, 0.0120872, -5.27002e-011, -0.0117306, 0.970427, 0.241109, 0.00291433, -0.241091, 0.970498, 0, 5.06312, 8.53507 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 
 [node name="block" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4.44564, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+margin_left = 145.514
+margin_top = 472.665
+margin_right = 320.514
+margin_bottom = 541.665
+
+[node name="TextureRect5" type="TextureRect" parent="Control/VBoxContainer"]
+margin_right = 175.0
+margin_bottom = 35.0
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+margin_top = 39.0
+margin_right = 175.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 100, 30 )
+text = "Pour générer un bloc"
+
+[node name="Container" type="Control" parent="Control"]
+margin_left = 631.579
+margin_top = 450.97
+margin_right = 671.579
+margin_bottom = 490.97
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Container"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Container/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 35.0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Container/VBoxContainer/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 35.0
+texture = ExtResource( 4 )
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Container/VBoxContainer/HBoxContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 35.0
+texture = ExtResource( 5 )
+
+[node name="CenterContainer2" type="MarginContainer" parent="Control/Container/VBoxContainer"]
+margin_top = 39.0
+margin_right = 74.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container/VBoxContainer/CenterContainer2"]
+margin_right = 74.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+bbcode_enabled = true
+bbcode_text = "Décaler le point de construction"
+text = "Décaler le point de construction"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Container"]
+editor/display_folded = true
+margin_left = 163.158
+margin_right = 203.158
+margin_bottom = 74.0
+
+[node name="CenterContainer" type="VBoxContainer" parent="Control/Container/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 74.0
+
+[node name="TextureRect4" type="TextureRect" parent="Control/Container/HBoxContainer/CenterContainer"]
+margin_right = 35.0
+margin_bottom = 35.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/Container/HBoxContainer/CenterContainer"]
+margin_top = 39.0
+margin_right = 35.0
+margin_bottom = 74.0
+texture = ExtResource( 7 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container/HBoxContainer"]
+margin_left = 39.0
+margin_right = 149.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 110, 74 )
+text = "Pour changer le type de bloc !"
+
+[node name="R" parent="Control" instance=ExtResource( 8 )]
+margin_left = 428.973
+margin_top = 479.958
+margin_right = 428.973
+margin_bottom = 479.958
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
