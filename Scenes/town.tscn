@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/town.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/palm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Libraries/grounds.meshlib" type="MeshLibrary" id=4]
+[ext_resource path="res://Scenes/gradin.tscn" type="PackedScene" id=5]
 
 [node name="town" type="Spatial"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
@@ -28,9 +29,12 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.562522, 0.122696, 0.47
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh_library = ExtResource( 4 )
 data = {
-"cells": PoolIntArray( 0, 0, 1610612736, 65534, 0, 1, 65535, 0, 0, 65534, 1, 1, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 0, 65535, 0, 65534, 65535, 1, 65535, 65535, 1610612736 )
+"cells": PoolIntArray( 0, 0, 0, 65535, 0, 0, 65534, 1, 1, 65535, 1, 1610612736, 65535, 2, 536870912, 65535, 3, 0, 0, 65535, 1610612736, 65534, 65535, 1, 65535, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+
+[node name="gradin" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.66034, 0.118242, 0 )

@@ -30,6 +30,7 @@ var weight = g*mass
 
 func _ready():
 	camera = fly_camera
+	animator.play("idle")
 
 func set_camera(value):
 	camera.current = false

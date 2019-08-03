@@ -11,8 +11,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+var nodes = ["cat","gradin"]
+
 func pause():
-	get_node("cat").pause()
+	for node in nodes:
+		get_node(node).pause()
+	
 
 func resume():
-	get_node("cat").resume()
+	for node in nodes :
+		get_node(node).resume()
