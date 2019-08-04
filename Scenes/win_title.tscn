@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="win_title" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+margin_left = 658.82
+margin_top = 305.352
+margin_right = 698.82
+margin_bottom = 345.352
+text = "Bravo !"

@@ -55,6 +55,14 @@ func _ready():
 	car_game.connect("game_won",self,"player_won",[beacon2])
 	car_game.connect("game_lost",self,"player_lost",[beacon2])
 	
+	yield(win_conditions(),"completed")
+	print("YOU HAVE REACHED WINNING CONDITIONS !")
+	get_tree().change_scene("res://Scenes/win_title.tscn")
+
+func win_conditions():
+	yield(car_game,"game_won")
+	yield(lego_game,"game_won")
+	
 func _on_player_interact():
 	if pantin.STATE != "RIDING" :
 		if pantin in beacon.close_bodies :

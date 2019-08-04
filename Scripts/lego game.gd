@@ -136,7 +136,8 @@ func _on_Timer_timeout():
 
 func _on_Area_body_exited(body):
 	if !paused :
-		if body.transform.origin.y >= 2 :
+		print(body.transform.origin.y)
+		if body.transform.origin.y >= 8.5 :
 			print("WON!")
 			emit_signal("game_won")
 		else :
