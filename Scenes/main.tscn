@@ -58,6 +58,15 @@ curve = SubResource( 1 )
 [node name="OmniLight2" type="OmniLight" parent="beacon2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.12, -18 )
 
+[node name="beacon3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2347, 2.05025, 48.3415 )
+
+[node name="OmniLight2" type="OmniLight" parent="beacon3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, -0.12, -18 )
+light_color = Color( 0.980392, 0.360784, 1, 1 )
+light_energy = 6.01
+light_indirect_energy = 8.43
+
 [node name="pause_camera" type="Camera" parent="."]
 transform = Transform( -0.348294, 0.4903, -0.798935, 0.195936, 0.871554, 0.449447, 0.916679, -1.62539e-008, -0.399625, -12.0641, 6.43621, -13.0522 )
 
