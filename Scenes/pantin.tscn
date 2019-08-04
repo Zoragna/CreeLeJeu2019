@@ -1,20 +1,26 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/pantin.gd" type="Script" id=1]
 [ext_resource path="res://pantin_idle_145_192_250ms.png" type="Texture" id=2]
 [ext_resource path="res://pantin_run_145_192_100ms.png" type="Texture" id=3]
 [ext_resource path="res://pantin_using_145_192_120ms.png" type="Texture" id=4]
 [ext_resource path="res://ridingtrex_200_232_150ms.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Win.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=7]
 
-[sub_resource type="CapsuleShape" id=5]
+[sub_resource type="CapsuleShape" id=1]
 radius = 0.537839
 height = 0.363274
 
-[sub_resource type="RayShape" id=6]
+[sub_resource type="RayShape" id=2]
 length = 0.190519
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="DynamicFont" id=11]
+size = 60
+outline_size = 3
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=3]
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -90,7 +96,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "riding"
 length = 0.6
 loop = true
@@ -156,8 +162,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "using"
+[sub_resource type="Animation" id=5]
 length = 0.48
 loop = true
 step = 0.12
@@ -222,8 +227,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk"
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -299,24 +303,25 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.0222222, 0.985185, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.914063, 0.692521, 0.167816, 1, 0, 1, 0.0862745, 0.517647, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=10]
-trail_color_modifier = SubResource( 9 )
+[sub_resource type="ParticlesMaterial" id=9]
+trail_color_modifier = SubResource( 8 )
 emission_shape = 1
 emission_sphere_radius = 0.41
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.0
 linear_accel = -4.0
 radial_accel = 4.69
 color = Color( 0.6, 0.682353, 0, 1 )
 
-[sub_resource type="SphereMesh" id=11]
+[sub_resource type="SphereMesh" id=10]
 radius = 0.1
 height = 0.1
 
@@ -326,11 +331,11 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 2.08966, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 1.34617, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="idle" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14918, 0 )
@@ -369,6 +374,30 @@ margin_top = 277.0
 margin_right = 213.0
 margin_bottom = 291.0
 
+[node name="Win" parent="Control" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Lose" type="Control" parent="Control"]
+visible = false
+margin_left = 277.593
+margin_top = 114.738
+margin_right = 777.593
+margin_bottom = 314.738
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Lose"]
+margin_left = 1.85052
+margin_top = 48.1161
+margin_right = 401.851
+margin_bottom = 248.116
+rect_min_size = Vector2( 400, 200 )
+custom_fonts/normal_font = SubResource( 11 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Mission ratée"
+
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 5.0
+one_shot = true
+
 [node name="head" type="Spatial" parent="."]
 transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0, 3.17901, -2.13444 )
 
@@ -377,15 +406,16 @@ transform = Transform( 1, -4.44952e-008, -1.21704e-008, 4.44952e-008, 0.860787, 
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 2 )
-anims/riding = SubResource( 7 )
-anims/using = SubResource( 4 )
-anims/walk = SubResource( 3 )
+anims/idle = SubResource( 3 )
+anims/riding = SubResource( 4 )
+anims/using = SubResource( 5 )
+anims/walk = SubResource( 6 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42698, 0 )
 visibility_aabb = AABB( -1.0075, -1.19136, -1.54361, 2.01499, 2.38273, 3.08722 )
-process_material = SubResource( 10 )
-draw_pass_1 = SubResource( 11 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
+[connection signal="timeout" from="Control/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

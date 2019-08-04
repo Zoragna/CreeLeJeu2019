@@ -1,5 +1,9 @@
 extends VehicleBody
 
+class_name Car
+
+var player = false
+
 onready var camera = get_node("Camera")
 onready var gui = get_node("Control")
 
@@ -7,6 +11,12 @@ var paused_velocity
 
 func _ready():
 	hide_gui()
+
+func make_player():
+	player = true
+
+func unmake_player():
+	player = false
 
 func _process(delta):
 	pass

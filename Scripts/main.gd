@@ -42,6 +42,9 @@ func _ready():
 	beacon.connect("game_abandonned",lego_game,"abandon")
 	beacon.connect("player_entered",self,"player_entered", [beacon])
 	beacon.connect("player_exited",self,"player_exited", [beacon])
+	
+	lego_game.connect("game_won",self,"player_won",[beacon])
+	lego_game.connect("game_lost",self,"player_lost",[beacon])
 
 	beacon2.set_game(car_game)
 	beacon2.connect("game_launched",car_game,"start")
@@ -49,12 +52,29 @@ func _ready():
 	beacon2.connect("player_entered",self,"player_entered", [beacon2])
 	beacon2.connect("player_exited",self,"player_exited", [beacon2])
 	
+	car_game.connect("game_won",self,"player_won",[beacon2])
+	car_game.connect("game_lost",self,"player_lost",[beacon2])
+	
+	yield(win_conditions(),"completed")
+	print("YOU HAVE REACHED WINNING CONDITIONS !")
+	get_tree().change_scene("res://Scenes/win_title.tscn")
+
+func win_conditions():
+	yield(car_game,"game_won")
+	yield(lego_game,"game_won")
+	
 func _on_player_interact():
 	if pantin.STATE != "RIDING" :
 		if pantin in beacon.close_bodies :
 			launch_beacon(beacon)
 		elif pantin in beacon2.close_bodies :
+			print("launching car game")
 			launch_beacon(beacon2)
+			var curve = car_game.get_node("checkpoint").get_curve()
+			var checkpoints = []
+			for i in range(curve.get_point_count()):
+				checkpoints.append(curve.get_point_position(i))
+			car_game.add_checkpoints(checkpoints)
 		elif pantin in trex.close_bodies :
 			print("pantin wants to ride trex")
 			remove_child(trex)
@@ -66,6 +86,12 @@ func player_entered(beacon):
 func player_exited(beacon):
 	close_beacon = null
 	mission_indicator.hide()
+
+func player_won(beacon):
+	abandon_game(beacon, true)
+
+func player_lost(beacon):
+	abandon_game(beacon, false)
 
 func launch_beacon(beacon):
 	print("beacon")
@@ -88,12 +114,16 @@ func _on_player_deinteract():
 		elif pantin in beacon2.close_bodies :
 			abandon_game(beacon2)
 
-func abandon_game(beacon):
+func abandon_game(beacon, player_won = false):
 	print("debeacon")
-	beacon.abandon_game()
+	beacon.abandon_game(player_won)
 	change_camera(travelling_camera)
 	current_mission = null
 	mission_indicator.show()
+	if player_won :
+		pantin.win()
+	else :
+		pantin.lose()
 
 func _input(event):
 	if event is InputEventKey :

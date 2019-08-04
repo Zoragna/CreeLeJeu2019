@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://button.png" type="Texture" id=2]
@@ -12,24 +12,19 @@ region_rect = Rect2( 0, 0, 138, 48 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 138, 48 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 138, 48 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 40
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 138, 48 )
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 138, 48 )
-
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 35
 font_data = ExtResource( 3 )
 
@@ -46,9 +41,8 @@ margin_top = 274.0
 margin_right = 651.0
 margin_bottom = 356.0
 custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Jouer"
@@ -58,9 +52,9 @@ margin_left = 440.0
 margin_top = 425.0
 margin_right = 619.0
 margin_bottom = 490.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Crédits"
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
