@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Batiment 3.obj-6bf99062527d7eff0d249454b46121bb.mesh"
+
+[deps]
+
+files=[ "res://.import/Batiment 3.obj-6bf99062527d7eff0d249454b46121bb.mesh" ]
+
+source_file="res://Batiment 3.obj"
+dest_files=[ "res://.import/Batiment 3.obj-6bf99062527d7eff0d249454b46121bb.mesh", "res://.import/Batiment 3.obj-6bf99062527d7eff0d249454b46121bb.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

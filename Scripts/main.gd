@@ -36,6 +36,7 @@ func _ready():
 
 	pantin.connect("launching_game",self,"_on_player_interact")
 	pantin.connect("abandonning_game",self,"_on_player_deinteract")
+	pantin.connect("dino_stomp",self,"dino_stomp")
 	
 	beacon.set_game(lego_game)
 	beacon.connect("game_launched",lego_game,"start")
@@ -130,10 +131,10 @@ func _input(event):
 		if Input.is_action_just_pressed("ui_cancel"):
 			if current_camera == pause_camera :
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				if pantin.STATE == "RUN" :
-					change_camera(travelling_camera)
-				elif pantin.STATE == "MISSION":
+				if pantin.STATE == "MISSION":
 					change_camera(current_mission.camera)
+				else :
+					change_camera(travelling_camera)
 				resume()
 			else :
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -168,9 +169,33 @@ func resume():
 	pause_gui.hide()
 
 func _physics_process(delta):
-	travelling_camera.transform.origin = pantin.transform.origin + Vector3(0,8,-11)
+	travelling_camera.transform.origin.x = pantin.transform.origin.x
+	travelling_camera.transform.origin.z = pantin.transform.origin.z - 11
+	travelling_camera.transform.origin.y = 8
 	if pantin.transform.origin.y < - 50 :
 		pantin.transform.origin.y = 10
 	if close_beacon != null && !paused && current_mission == null :
 		mission_indicator.rect_global_position = travelling_camera.unproject_position(close_beacon.transform.origin)+Vector2(0,-50)
 		mission_indicator.show()
+
+var dino_stomp = -1
+
+func dino_stomp():
+	var shake_amount = 0.5;
+	var tween
+	for param in ["h_offset","v_offset"]:
+		tween = Tween.new()
+		var shake = rand_range(-1.0, 1.0) * shake_amount; 
+		tween.interpolate_property(travelling_camera, param,
+	        0, shake, 0.2, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
+		add_child(tween)
+		tween.start()
+		tween = Tween.new()
+		tween.interpolate_property(travelling_camera,param,
+	       rand_range(-1.0, 1.0) * shake_amount, 0, 0.2, Tween.TRANS_SINE , Tween.EASE_IN_OUT, 0.2)
+		add_child(tween)
+		tween.start()
+
+func _on_Button_pressed():
+	print("!")
+	get_tree().change_scene("res://Scenes/menu.tscn")

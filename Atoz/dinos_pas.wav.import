@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dinos_pas.wav-0a42af979c4c82fcca3b45d497145cd7.sample"
+
+[deps]
+
+source_file="res://Atoz/dinos_pas.wav"
+dest_files=[ "res://.import/dinos_pas.wav-0a42af979c4c82fcca3b45d497145cd7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

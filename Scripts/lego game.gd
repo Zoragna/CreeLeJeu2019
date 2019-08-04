@@ -105,10 +105,11 @@ func start():
 func abandon(player_won = false):
 	paused = true
 	gui.hide()
+	get_node("AudioStreamPlayer3D").play()
 	for block in blocks :
 		var self_origin = self.transform.origin
 		var current_animation = block.animator.get_current_animation()
-		var impulse = (block.transform.origin - self_origin)
+		var impulse = 10*(block.transform.origin - self_origin)
 		block.delock()
 		block.get_node(current_animation).apply_impulse(self_origin, impulse)
 
@@ -136,10 +137,13 @@ func _on_Timer_timeout():
 
 func _on_Area_body_exited(body):
 	if !paused :
-		print(body.transform.origin.y)
-		if body.transform.origin.y >= 8.5 :
-			print("WON!")
+		print("LOSE")
+		emit_signal("game_lost")
+
+func _on_Area2_body_entered(body):
+	if !paused :
+		# Wait 5 seconds, then resume execution.
+		yield(get_tree().create_timer(3.0), "timeout")
+		if body in get_node("Area2").get_overlapping_bodies():
+			print("WIN")
 			emit_signal("game_won")
-		else :
-			print("LOSE")
-			emit_signal("game_lost")

@@ -13,6 +13,7 @@ onready var particles = get_node("Particles")
 
 signal launching_game
 signal abandonning_game
+signal dino_stomp
 
 var camera
 var min_head_dist = 7
@@ -87,33 +88,49 @@ func run(delta):
 	var target = Vector3()
 	var velxy = Vector2(velocity.x, velocity.z)
 	if STATE != "MISSION" :
-		if STATE == "RIDING" :
-			animate("riding")
-		elif velxy.length() < 3 :
-			animate("idle")
-		elif STATE == "RUN" :
-			animate("walk")
+		if is_on_floor() :
+			if animator.get_current_animation() == "riding_jump":
+				get_node("AudioStreamPlayer3").play()
+				emit_signal("dino_stomp")
+			if velxy.length() < 1 && STATE == "RIDING" :
+				animate("riding_idle")
+				get_node("Timer").stop()
+			elif velxy.length() < 3 && STATE == "RUN" :
+					animate("idle")
+			elif STATE == "RUN" :
+				animate("walk")
+			elif STATE == "RIDING":
+				animate("riding")
+				if get_node("Timer").is_stopped() :
+					get_node("Timer").start()
 		if Input.is_action_pressed("ui_left") :
 			direction += Vector3(1,0,0)
 			get_node("idle").flip_h = false
 			get_node("run").flip_h = false
 			get_node("riding").flip_h = false
+			get_node("riding_idle").flip_h = false
+			get_node("riding_jump").flip_h = false
 		if Input.is_action_pressed("ui_right") :
 			direction -= Vector3(1,0,0)
 			get_node("idle").flip_h = true
 			get_node("run").flip_h = true
 			get_node("riding").flip_h = true
+			get_node("riding_idle").flip_h = true
+			get_node("riding_jump").flip_h = true
 		if Input.is_action_pressed("ui_up") :
 			direction += Vector3(0,0,1)
 		if Input.is_action_pressed("ui_down") :
 			direction -= Vector3(0,0,1)
 		if Input.is_action_just_pressed("jump") && is_on_floor() && STATE == "RIDING" :
+			animate("riding_jump")
 			target.y += jump_speed
 	direction = direction.normalized()
 	target.x = direction.x*speed
 	target.z = direction.z*speed
 	#target.y += velocity.y
 	target += weight*Vector3(0,1,0)
+	if STATE == "RIDING" :
+		target *= 0.3
 
 	velocity = velocity.linear_interpolate(target, acceleration*delta)
 	
@@ -140,6 +157,7 @@ func key(event):
 				emit_signal("abandonning_game")
 			elif STATE == "RIDING" :
 				emit_signal("abandonning_game")
+				get_node("Timer").stop()
 
 func _input(event):
 	if !paused :
@@ -157,9 +175,22 @@ func _on_AnimationPlayer_animation_changed(old_name, new_name):
 
 
 func _on_AnimationPlayer_animation_started(anim_name):
-	print(anim_name)
+	print(anim_name)	
 
 
 func _on_Timer_timeout():
 	win_ui.hide()
 	lose_ui.hide()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "riding_jump":
+		print("!")
+
+
+func _on_step_timeout():
+	randomize()
+	if randf() < 0.5 :
+		get_node("AudioStreamPlayer").play()
+	else :
+		get_node("AudioStreamPlayer2").play()

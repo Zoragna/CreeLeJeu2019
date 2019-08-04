@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/lego game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/block.tscn" type="PackedScene" id=2]
@@ -10,10 +10,12 @@
 [ext_resource path="res://Scenes/R.tscn" type="PackedScene" id=8]
 [ext_resource path="res://bricktexture100-96.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Win.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Atoz/explosion_lego.wav" type="AudioStream" id=12]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.51252, 1.57895, -0.32778, 0, 0, 0, 0, 0, 0, 4.84423, 2.16209, -0.267214 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.51252, 1.57895, -0.32778, 0, 0, 0, 0, 0, 0, 5.09915, 1.52752, 0.144159 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -26,8 +28,23 @@ material = SubResource( 2 )
 
 [sub_resource type="BoxShape" id=4]
 
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+albedo_color = Color( 0, 0.780392, 0.988235, 0.411765 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 9 )
+size = Vector3( 10, 0.2, 4 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 10, 0.5, 4 )
+
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 6, 10, 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 11 )
 
 [node name="lego game" type="Spatial"]
 script = ExtResource( 1 )
@@ -56,6 +73,17 @@ wait_time = 3.5
 
 [node name="block" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4.44564, 0 )
+
+[node name="Area2" type="Area" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.6877, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.9974, 0 )
+shape = SubResource( 8 )
 
 [node name="Area" type="Area" parent="."]
 collision_layer = 8193
@@ -188,5 +216,18 @@ percent_visible = false
 
 [node name="Win" parent="Control" instance=ExtResource( 10 )]
 visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+margin_left = 102.968
+margin_top = 367.452
+margin_right = 399.968
+margin_bottom = 468.452
+custom_fonts/normal_font = SubResource( 6 )
+text = "Construis une tour qui dépasse la ligne dans le temps imparti !"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 12 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_shape_entered" from="Area2" to="." method="_on_Area2_area_shape_entered"]
+[connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

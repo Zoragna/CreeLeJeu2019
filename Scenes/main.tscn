@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/town.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/trex.tscn" type="PackedScene" id=7]
 [ext_resource path="res://r.png" type="Texture" id=8]
 [ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://button.png" type="Texture" id=10]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -20,6 +21,14 @@ _data = {
 size = 50
 outline_size = 3
 outline_color = Color( 0.701961, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 138, 48 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
 font_data = ExtResource( 9 )
 
 [node name="main" type="Spatial"]
@@ -125,3 +134,14 @@ margin_right = 144.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 140, 50 )
 text = "Appuyez sur Echap pour reprendre"
+
+[node name="Button" type="Button" parent="Control/pause"]
+margin_left = 280.441
+margin_top = 9.04651
+margin_right = 418.441
+margin_bottom = 57.0465
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Retour Menu"
+[connection signal="pressed" from="Control/pause/Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/explosion_lego.wav-c530396e1811abcb241f7ff733a83d74.sample"
+
+[deps]
+
+source_file="res://Atoz/explosion_lego.wav"
+dest_files=[ "res://.import/explosion_lego.wav-c530396e1811abcb241f7ff733a83d74.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
