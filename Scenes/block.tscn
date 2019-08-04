@@ -14,8 +14,10 @@
 extents = Vector3( 1, 2.13033, 1 )
 
 [sub_resource type="BoxShape" id=3]
+extents = Vector3( 2, 2, 2 )
 
 [sub_resource type="BoxShape" id=4]
+extents = Vector3( 6, 2, 2 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "L"
@@ -162,7 +164,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8193 ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("bar:collision_mask")
@@ -237,7 +239,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("circle:collision_layer")
+tracks/18/path = NodePath("circle:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -246,7 +248,7 @@ tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("circle:collision_mask")
@@ -261,7 +263,7 @@ tracks/19/keys = {
 "values": [ 0 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("circle:visible")
+tracks/20/path = NodePath("circle:collision_layer")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -270,7 +272,7 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("T:sleeping")
@@ -285,7 +287,7 @@ tracks/21/keys = {
 "values": [ true ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("T:collision_layer")
+tracks/22/path = NodePath("T:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -294,7 +296,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("T:collision_mask")
@@ -309,7 +311,7 @@ tracks/23/keys = {
 "values": [ 0 ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("T:visible")
+tracks/24/path = NodePath("T:collision_layer")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -318,10 +320,10 @@ tracks/24/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=6]
 resource_name = "S"
 loop = true
 tracks/0/type = "value"
@@ -514,7 +516,7 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8193 ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("circle:sleeping")
@@ -529,7 +531,7 @@ tracks/16/keys = {
 "values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("circle:collision_layer")
+tracks/17/path = NodePath("circle:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -538,7 +540,7 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("circle:collision_mask")
@@ -553,7 +555,7 @@ tracks/18/keys = {
 "values": [ 0 ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("circle:visible")
+tracks/19/path = NodePath("circle:collision_layer")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -562,7 +564,7 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("T:sleeping")
@@ -577,7 +579,7 @@ tracks/20/keys = {
 "values": [ true ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("T:collision_layer")
+tracks/21/path = NodePath("T:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -586,7 +588,7 @@ tracks/21/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("T:collision_mask")
@@ -601,7 +603,7 @@ tracks/22/keys = {
 "values": [ 0 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("T:visible")
+tracks/23/path = NodePath("T:collision_layer")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -610,7 +612,7 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("S/S:modulate")
@@ -625,7 +627,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=7]
 resource_name = "T"
 loop = true
 tracks/0/type = "value"
@@ -902,7 +904,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8193 ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("T:visible")
@@ -929,8 +931,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "bar"
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("cube:sleeping")
@@ -1062,7 +1063,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8193 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("L:collision_mask")
@@ -1233,7 +1234,7 @@ tracks/24/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 resource_name = "circle"
 loop = true
 tracks/0/type = "value"
@@ -1537,8 +1538,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "cube"
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("cube:sleeping")
@@ -1670,7 +1670,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 8193 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("L:collision_mask")
@@ -1709,7 +1709,7 @@ tracks/13/keys = {
 "values": [ true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("S:collision_layer")
+tracks/14/path = NodePath("S:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1718,7 +1718,7 @@ tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("S:collision_mask")
@@ -1733,7 +1733,7 @@ tracks/15/keys = {
 "values": [ 0 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("S:visible")
+tracks/16/path = NodePath("S:collision_layer")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1742,7 +1742,7 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("circle:sleeping")
@@ -1757,7 +1757,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("circle:collision_layer")
+tracks/18/path = NodePath("circle:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1766,7 +1766,7 @@ tracks/18/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("circle:collision_mask")
@@ -1781,7 +1781,7 @@ tracks/19/keys = {
 "values": [ 0 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("circle:visible")
+tracks/20/path = NodePath("circle:collision_layer")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -1790,7 +1790,7 @@ tracks/20/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("T:sleeping")
@@ -1805,7 +1805,7 @@ tracks/21/keys = {
 "values": [ true ]
 }
 tracks/22/type = "value"
-tracks/22/path = NodePath("T:collision_layer")
+tracks/22/path = NodePath("T:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
@@ -1814,7 +1814,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("T:collision_mask")
@@ -1829,7 +1829,7 @@ tracks/23/keys = {
 "values": [ 0 ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("T:visible")
+tracks/24/path = NodePath("T:collision_layer")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -1838,11 +1838,10 @@ tracks/24/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "selection_L"
+[sub_resource type="Animation" id=11]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("cube:sleeping")
@@ -2145,7 +2144,7 @@ tracks/24/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=12]
 resource_name = "selection_S"
 loop = true
 tracks/0/type = "value"
@@ -2449,7 +2448,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 0.243137 ), Color( 1, 1, 1, 0.686275 ), Color( 1, 1, 1, 0.243137 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 resource_name = "selection_T"
 loop = true
 tracks/0/type = "value"
@@ -2609,7 +2608,7 @@ tracks/12/keys = {
 "values": [ true ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("S:collision_layer")
+tracks/13/path = NodePath("S:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -2618,7 +2617,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("S:collision_mask")
@@ -2633,7 +2632,7 @@ tracks/14/keys = {
 "values": [ 0 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("S:visible")
+tracks/15/path = NodePath("S:collision_layer")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -2642,7 +2641,7 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("circle:sleeping")
@@ -2657,7 +2656,7 @@ tracks/16/keys = {
 "values": [ true ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("circle:collision_layer")
+tracks/17/path = NodePath("circle:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -2666,7 +2665,7 @@ tracks/17/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ false ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("circle:collision_mask")
@@ -2681,7 +2680,7 @@ tracks/18/keys = {
 "values": [ 0 ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("circle:visible")
+tracks/19/path = NodePath("circle:collision_layer")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -2690,7 +2689,7 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("T:sleeping")
@@ -2705,7 +2704,7 @@ tracks/20/keys = {
 "values": [ true ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("T:collision_layer")
+tracks/21/path = NodePath("T:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -2714,7 +2713,7 @@ tracks/21/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ true ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("T:collision_mask")
@@ -2729,7 +2728,7 @@ tracks/22/keys = {
 "values": [ 0 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("T:visible")
+tracks/23/path = NodePath("T:collision_layer")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -2738,7 +2737,7 @@ tracks/23/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("T/T:modulate")
@@ -2753,8 +2752,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 0.254902 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.254902 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "selection_bar"
+[sub_resource type="Animation" id=14]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("cube:sleeping")
@@ -3057,7 +3055,7 @@ tracks/24/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=15]
 resource_name = "selection_circle"
 loop = true
 tracks/0/type = "value"
@@ -3361,8 +3359,7 @@ tracks/24/keys = {
 "values": [ Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0.278431 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "selection_cube"
+[sub_resource type="Animation" id=16]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("cube:sleeping")
@@ -3665,21 +3662,20 @@ tracks/24/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 1, 0.3, 1 )
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 2, 2, 2 )
 
-[sub_resource type="BoxShape" id=12]
-extents = Vector3( 0.3, 0.4, 1 )
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 2.7, 5.2, 2 )
 
-[sub_resource type="CylinderShape" id=13]
+[sub_resource type="CylinderShape" id=19]
 radius = 0.6
 height = 1.0
 
-[sub_resource type="BoxShape" id=14]
-extents = Vector3( 1.4, 0.5, 1 )
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 5.6, 2, 2 )
 
-[sub_resource type="BoxShape" id=15]
-extents = Vector3( 0.5, 0.5, 1 )
+[sub_resource type="BoxShape" id=21]
 
 [node name="block" type="Spatial"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
@@ -3690,13 +3686,16 @@ editor/display_folded = true
 visible = false
 collision_layer = 0
 collision_mask = 0
+mass = 50.0
 sleeping = true
+axis_lock_linear_z = true
 
 [node name="CollisionShape" type="CollisionShape" parent="cube"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="cube" type="Sprite3D" parent="cube"]
+modulate = Color( 1, 1, 1, 0.129412 )
 pixel_size = 0.03
 texture = ExtResource( 2 )
 
@@ -3705,19 +3704,21 @@ editor/display_folded = true
 visible = false
 collision_layer = 0
 collision_mask = 0
+mass = 50.0
 sleeping = true
+axis_lock_linear_z = true
 
 [node name="L" type="Sprite3D" parent="L"]
-transform = Transform( -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -8.74228e-008, -2, 0, 2, -8.74228e-008, 0, 0, 0, 2, 1.95288, 2.07524, 0 )
 pixel_size = 0.03
 texture = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="L"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06195, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0506755, 2.13405, 0 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="L"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912431, -1.1191, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08691, -0.0142537, 0 )
 shape = SubResource( 3 )
 
 [node name="bar" type="RigidBody" parent="."]
@@ -3725,76 +3726,92 @@ editor/display_folded = true
 visible = false
 collision_layer = 0
 collision_mask = 0
+mass = 50.0
 sleeping = true
+axis_lock_linear_z = true
 
 [node name="CollisionShape" type="CollisionShape" parent="bar"]
-transform = Transform( 4.3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="bar" type="Sprite3D" parent="bar"]
+transform = Transform( 1.4, 0, 0, 0, 1.8, 0, 0, 0, 2, 0, 0, 0 )
 modulate = Color( 1, 1, 1, 0.243137 )
 pixel_size = 0.03
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/L = SubResource( 5 )
-anims/S = SubResource( 18 )
-anims/T = SubResource( 17 )
-anims/bar = SubResource( 6 )
-anims/circle = SubResource( 16 )
-anims/cube = SubResource( 7 )
-anims/selection_L = SubResource( 8 )
-anims/selection_S = SubResource( 20 )
-anims/selection_T = SubResource( 19 )
-anims/selection_bar = SubResource( 9 )
-anims/selection_circle = SubResource( 21 )
-anims/selection_cube = SubResource( 10 )
+anims/S = SubResource( 6 )
+anims/T = SubResource( 7 )
+anims/bar = SubResource( 8 )
+anims/circle = SubResource( 9 )
+anims/cube = SubResource( 10 )
+anims/selection_L = SubResource( 11 )
+anims/selection_S = SubResource( 12 )
+anims/selection_T = SubResource( 13 )
+anims/selection_bar = SubResource( 14 )
+anims/selection_circle = SubResource( 15 )
+anims/selection_cube = SubResource( 16 )
 
 [node name="S" type="RigidBody" parent="."]
 editor/display_folded = true
 visible = false
+collision_layer = 0
+collision_mask = 0
+mass = 50.0
+sleeping = true
+axis_lock_linear_z = true
 
 [node name="S" type="Sprite3D" parent="S"]
+transform = Transform( 7.5, 0, 0, 0, 7.5, 0, 0, 0, 7, 0.186713, -0.781571, 0 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="S"]
-shape = SubResource( 11 )
+shape = SubResource( 17 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="S"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.696113, 0.696784, 0 )
-shape = SubResource( 12 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45877, -3.21264, 0 )
+shape = SubResource( 18 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="S"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.699213, -0.703183, 0 )
-shape = SubResource( 12 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96625, 2.2089, 0 )
+shape = SubResource( 18 )
 
 [node name="circle" type="RigidBody" parent="."]
+editor/display_folded = true
 visible = false
 collision_layer = 0
 collision_mask = 0
+mass = 50.0
 sleeping = true
+axis_lock_linear_z = true
 
 [node name="circle" type="Sprite3D" parent="circle"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+modulate = Color( 1, 1, 1, 0.449411 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="circle"]
 transform = Transform( 3, 0, 0, 0, -1.31134e-007, -3, 0, 3, -1.31134e-007, 0, 0, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 19 )
 
 [node name="T" type="RigidBody" parent="."]
+editor/display_folded = true
+visible = false
 collision_layer = 0
 collision_mask = 0
+mass = 50.0
 sleeping = true
+axis_lock_linear_z = true
 
 [node name="T" type="Sprite3D" parent="T"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.108782, 1.85618, 0 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="T"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.921013, 0 )
-shape = SubResource( 14 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.76525, 0 )
+shape = SubResource( 20 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="T"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.02358, 0 )
-shape = SubResource( 15 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+shape = SubResource( 21 )

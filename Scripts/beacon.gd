@@ -25,8 +25,9 @@ func get_game():
 func launch_game():
 	emit_signal("game_launched")
 
-func abandon_game():
-	emit_signal("game_abandonned")
+func abandon_game(player_won = false):
+	print("abandonned ?"+str(player_won))
+	emit_signal("game_abandonned", player_won)
 
 func _on_Area_body_entered(body):
 	close_bodies.append(body)

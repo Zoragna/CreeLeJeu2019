@@ -6,6 +6,8 @@ onready var head = get_node("head")
 onready var fly_camera = head.get_node("Camera")
 
 onready var debug_label = get_node("Control/Label")
+onready var win_ui = get_node("Control/Win")
+onready var lose_ui = get_node("Control/Lose")
 onready var animator = get_node("AnimationPlayer")
 onready var particles = get_node("Particles")
 
@@ -60,6 +62,16 @@ func resume():
 	paused = false
 	animator.play()
 
+func win():
+	STATE = "RUN"
+	win_ui.show()
+	get_node("Control/Timer").start()
+
+func lose():
+	STATE = "RUN"
+	lose_ui.show()
+	get_node("Control/Timer").start()
+
 func _physics_process(delta):
 	if !paused :
 		if STATE == "MISSION" :
@@ -95,6 +107,8 @@ func run(delta):
 			direction += Vector3(0,0,1)
 		if Input.is_action_pressed("ui_down") :
 			direction -= Vector3(0,0,1)
+		if Input.is_action_just_pressed("jump") && is_on_floor() && STATE == "RIDING" :
+			target.y += jump_speed
 	direction = direction.normalized()
 	target.x = direction.x*speed
 	target.z = direction.z*speed
@@ -116,6 +130,7 @@ func key(event):
 	if event.pressed : 
 		if event.scancode == KEY_R :
 			if STATE == "RUN" :
+				_on_Timer_timeout()
 				animator.play("using")
 				STATE = "MISSION"
 				emit_signal("launching_game")
@@ -143,3 +158,8 @@ func _on_AnimationPlayer_animation_changed(old_name, new_name):
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	print(anim_name)
+
+
+func _on_Timer_timeout():
+	win_ui.hide()
+	lose_ui.hide()
