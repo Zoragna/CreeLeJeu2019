@@ -7,7 +7,6 @@ extends Spatial
 onready var timer = get_node("Timer")
 onready var car_UI = get_node("Control")
 onready var colorRect = car_UI.get_node("ColorRect")
-onready var win_UI = get_node("Control/Win")
 onready var flying_camera = get_node("Camera")
 
 onready var start_line = get_node("MeshInstance")
@@ -27,6 +26,7 @@ var idx_checkpoint = 0
 var STATE = 3
 
 signal game_won
+signal game_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,8 +54,8 @@ func resume():
 	for car in cars :
 		car.resume()
 
-func abandon():
-	timer.stop()
+func abandon(player_won = false):
+	print("won?"+str(player_won))
 	car_UI.hide()
 	on_mission = false
 
@@ -67,11 +67,10 @@ func start():
 	print("started car game !")
 	timer.start()
 	car_UI.show()
-	win_UI.hide()
 	STATE = 3
 	
 	timer.wait_time = 1
-	colorRect.show()
+	
 	colorRect.color = Color.black
 	on_mission = true
 	
@@ -100,11 +99,8 @@ func advance_checkpoint(checkpoint):
 func win():
 	print("WIN !")
 	emit_signal("game_won")
-	win_UI.show()
-	timer.wait_time = 4
 	player_car.set_engine_force(0)
 	player_car.set_brake(10)
-	STATE = -666
 
 func _physics_process(delta):
 	if STATE <= 0 && on_mission && !paused :
@@ -126,6 +122,8 @@ func _physics_process(delta):
 		player_car.set_steering(steering)
 		player_car.set_brake(brake)
 		player_car.set_engine_force(engine_force)
+		if player_car.transform.origin.y < -10 :
+			emit_signal("game_lost")
 
 func spawn_car(position):
 	print("spawn block !")
@@ -146,6 +144,4 @@ func _on_Timer_timeout():
 	elif STATE == 0 :
 		colorRect.hide()
 		timer.stop()
-	elif STATE == -666 :
-		win_UI.hide()
 	STATE -= 1

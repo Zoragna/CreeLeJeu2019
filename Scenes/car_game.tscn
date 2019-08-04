@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/car_game.gd" type="Script" id=1]
 [ext_resource path="res://space.png" type="Texture" id=2]
@@ -7,13 +7,7 @@
 [ext_resource path="res://down.png" type="Texture" id=5]
 [ext_resource path="res://right.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/R.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Rouli6.ttf" type="DynamicFontData" id=8]
-
-[sub_resource type="DynamicFont" id=2]
-size = 50
-outline_size = 4
-outline_color = Color( 0.615686, 0.109804, 0.109804, 1 )
-font_data = ExtResource( 8 )
+[ext_resource path="res://Scenes/Win.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -108,18 +102,8 @@ margin_top = 322.881
 margin_right = 8.38425
 margin_bottom = 322.881
 
-[node name="Win" type="Control" parent="Control"]
+[node name="Win" parent="Control" instance=ExtResource( 8 )]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Win"]
-margin_left = 351.128
-margin_top = 100.174
-margin_right = 740.128
-margin_bottom = 200.174
-custom_fonts/normal_font = SubResource( 2 )
-text = "Mission Remplie !"
 
 [node name="MeshInstance" type="Spatial" parent="."]
 transform = Transform( -4.1579, 0, -0.015676, 0, 0.206304, 0, 0.0651872, 0, -0.999877, 0, 0, -2.84071 )

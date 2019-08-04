@@ -42,6 +42,9 @@ func _ready():
 	beacon.connect("game_abandonned",lego_game,"abandon")
 	beacon.connect("player_entered",self,"player_entered", [beacon])
 	beacon.connect("player_exited",self,"player_exited", [beacon])
+	
+	lego_game.connect("game_won",self,"player_won",[beacon])
+	lego_game.connect("game_lost",self,"player_lost",[beacon])
 
 	beacon2.set_game(car_game)
 	beacon2.connect("game_launched",car_game,"start")
@@ -50,6 +53,7 @@ func _ready():
 	beacon2.connect("player_exited",self,"player_exited", [beacon2])
 	
 	car_game.connect("game_won",self,"player_won",[beacon2])
+	car_game.connect("game_lost",self,"player_lost",[beacon2])
 	
 func _on_player_interact():
 	if pantin.STATE != "RIDING" :
@@ -76,7 +80,10 @@ func player_exited(beacon):
 	mission_indicator.hide()
 
 func player_won(beacon):
-	abandon_game(beacon)
+	abandon_game(beacon, true)
+
+func player_lost(beacon):
+	abandon_game(beacon, false)
 
 func launch_beacon(beacon):
 	print("beacon")
@@ -99,12 +106,16 @@ func _on_player_deinteract():
 		elif pantin in beacon2.close_bodies :
 			abandon_game(beacon2)
 
-func abandon_game(beacon):
+func abandon_game(beacon, player_won = false):
 	print("debeacon")
-	beacon.abandon_game()
+	beacon.abandon_game(player_won)
 	change_camera(travelling_camera)
 	current_mission = null
 	mission_indicator.show()
+	if player_won :
+		pantin.win()
+	else :
+		pantin.lose()
 
 func _input(event):
 	if event is InputEventKey :
