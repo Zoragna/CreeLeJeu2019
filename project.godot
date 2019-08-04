@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "VehicleBody",
+"class": "Car",
+"language": "GDScript",
+"path": "res://Scripts/car.gd"
+}, {
 "base": "KinematicBody",
 "class": "Pantin",
 "language": "GDScript",
 "path": "res://Scripts/pantin.gd"
 } ]
 _global_script_class_icons={
+"Car": "",
 "Pantin": ""
 }
 

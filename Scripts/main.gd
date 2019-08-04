@@ -49,12 +49,20 @@ func _ready():
 	beacon2.connect("player_entered",self,"player_entered", [beacon2])
 	beacon2.connect("player_exited",self,"player_exited", [beacon2])
 	
+	car_game.connect("game_won",self,"player_won",[beacon2])
+	
 func _on_player_interact():
 	if pantin.STATE != "RIDING" :
 		if pantin in beacon.close_bodies :
 			launch_beacon(beacon)
 		elif pantin in beacon2.close_bodies :
+			print("launching car game")
 			launch_beacon(beacon2)
+			var curve = car_game.get_node("checkpoint").get_curve()
+			var checkpoints = []
+			for i in range(curve.get_point_count()):
+				checkpoints.append(curve.get_point_position(i))
+			car_game.add_checkpoints(checkpoints)
 		elif pantin in trex.close_bodies :
 			print("pantin wants to ride trex")
 			remove_child(trex)
@@ -66,6 +74,9 @@ func player_entered(beacon):
 func player_exited(beacon):
 	close_beacon = null
 	mission_indicator.hide()
+
+func player_won(beacon):
+	abandon_game(beacon)
 
 func launch_beacon(beacon):
 	print("beacon")
