@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/foules_happy_boucle.ogg-76bbc9754cd3a212bacc20c530c3adaf.oggstr"
+
+[deps]
+
+source_file="res://Atoz/foules_happy_boucle.ogg"
+dest_files=[ "res://.import/foules_happy_boucle.ogg-76bbc9754cd3a212bacc20c530c3adaf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
